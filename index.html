@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Página básica con estilo</title>
+    <style>
+        :root{
+            --bg-start: #0f172a;
+            --bg-end:   #0b3a64;
+            --card:     #ffffff;
+            --muted:    #cbd5e1;
+            --accent:   #ff7ab6;
+            --accent-2: #7be4ff;
+            --glass:    rgba(255,255,255,0.06);
+            --radius:   12px;
+            --shadow:   0 8px 24px rgba(2,6,23,0.6);
+            --max-width: 1100px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html,body{
+            height:100%;
+            margin:0;
+            background: linear-gradient(135deg,var(--bg-start),var(--bg-end));
+            color: #e6eef8;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        .site{
+            min-height:100%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            padding:48px 20px;
+            box-sizing:border-box;
+        }
+
+        header{
+            width:100%;
+            max-width:var(--max-width);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:28px;
+            gap:16px;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            text-decoration:none;
+            color:inherit;
+        }
+
+        .logo{
+            width:48px;
+            height:48px;
+            border-radius:10px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:#04263a;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        }
+
+        nav a{
+            color:var(--muted);
+            text-decoration:none;
+            margin-left:18px;
+            font-size:0.95rem;
+        }
+        nav a:hover{ color: #fff; }
+
+        main{
+            width:100%;
+            max-width:var(--max-width);
+            display:flex;
+            gap:28px;
+            align-items:flex-start;
+            flex-wrap:wrap;
+        }
+
+        .hero{
+            flex:1 1 480px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            border-radius: var(--radius);
+            padding:28px;
+            box-shadow: var(--shadow);
+            border:1px solid rgba(255,255,255,0.04);
+        }
+
+        .hero h1{
+            margin:0 0 8px 0;
+            font-size:2rem;
+            color:#fff;
+        }
+        .hero p{
+            margin:0 0 18px 0;
+            color:var(--muted);
+            line-height:1.5;
+        }
+
+        .btn{
+            display:inline-block;
+            background:linear-gradient(90deg,var(--accent),#ff6b7b);
+            color:#04263a;
+            padding:10px 16px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            box-shadow: 0 8px 20px rgba(255,122,182,0.18);
+            transition:transform .15s ease, box-shadow .15s ease;
+        }
+        .btn:hover{ transform:translateY(-3px); box-shadow: 0 18px 40px rgba(255,122,182,0.18); }
+
+        .aside{
+            width:320px;
+            min-width:260px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:var(--radius);
+            padding:18px;
+            border:1px solid rgba(255,255,255,0.03);
+            box-shadow: var(--shadow);
+            color:var(--muted);
+            font-size:0.95rem;
+        }
+
+        .grid{
+            margin-top:22px;
+            display:grid;
+            gap:14px;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            width:100%;
+        }
+
+        .card{
+            background:var(--card);
+            color:#071730;
+            padding:16px;
+            border-radius:12px;
+            box-shadow: 0 6px 20px rgba(2,6,23,0.18);
+            border:1px solid rgba(2,6,23,0.06);
+        }
+        .card h3{ margin:0 0 8px 0; font-size:1.05rem; }
+        .card p{ margin:0; color:#334155; font-size:0.95rem; line-height:1.4; }
+
+        footer{
+            margin-top:36px;
+            width:100%;
+            max-width:var(--max-width);
+            color:var(--muted);
+            font-size:0.9rem;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            padding-top:18px;
+            border-top:1px dashed rgba(255,255,255,0.03);
+        }
+
+        @media (max-width:880px){
+            .aside{ order:2; width:100%; }
+            .hero{ order:1; width:100%; }
+            header{ flex-direction:column; align-items:flex-start; gap:12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo">PC</div>
+                <div>
+                    <strong>Pruebas</strong><br />
+                    <small style="color:var(--muted)">Página de ejemplo</small>
+                </div>
+            </a>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Características</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" aria-labelledby="title-hero">
+                <h1 id="title-hero">Bienvenido a la página de ejemplo</h1>
+                <p>Esta es una plantilla HTML sencilla con colores, tarjetas y estilos modernos. Úsala como base para tus pruebas o prototipos.</p>
+                <a class="btn" href="#">Comenzar</a>
+
+                <div class="grid" style="margin-top:20px;">
+                    <article class="card">
+                        <h3>Diseño responsivo</h3>
+                        <p>Se adapta a pantallas pequeñas y grandes usando CSS flexible y media queries.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Colores agradables</h3>
+                        <p>Una paleta con gradientes y acentos para lograr contraste y buena legibilidad.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Componentes reutilizables</h3>
+                        <p>Tarjetas, botones y cabecera listos para reutilizar y personalizar.</p>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="aside" aria-label="Información adicional">
+                <h4 style="margin-top:0;color:#fff">Atajos</h4>
+                <ul style="padding-left:18px;margin:8px 0 0 0;line-height:1.6;color:var(--muted)">
+                    <li>Modificar variables en :root para cambiar tema.</li>
+                    <li>Agregar más tarjetas en la sección "grid".</li>
+                    <li>Reemplazar texto por contenido real.</li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer>
+            <div>© 2025 — Proyecto de prueba</div>
+            <div>Hecho con <span style="color:var(--accent)">❤</span> y CSS</div>
+        </footer>
+    </div>
+</body>
+</html></ul></aside></article>
